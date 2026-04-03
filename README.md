@@ -55,8 +55,8 @@ github.com/joho/godotenv - loads environment variables from a .env file
 # Testing locally
 
 - docker-compose up --build
-- docker exec -it postgres-go psql -U postgres -d users_db
-- create users table inside postgres-go container:
+- docker exec - it postgres-go psql -U postgres -d users_db
+- create a users table inside a postgres-go container:
     ```
      CREATE TABLE users (
          id SERIAL PRIMARY KEY,
@@ -64,7 +64,7 @@ github.com/joho/godotenv - loads environment variables from a .env file
          email TEXT UNIQUE NOT NULL
      );
   ```
-- create user using the API:
+- create a user using the API:
   ```
   curl -X POST http://localhost:8080/users \
   -H "Content-Type: application/json" \
