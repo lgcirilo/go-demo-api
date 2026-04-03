@@ -46,8 +46,30 @@ go-user-api/
 # Dependencies
 
 ```
-go get github.com/gin-gonic/gin - HTTP web framework
-go get github.com/jackc/pgx/v5 - PostgreSQL driver + toolkit
-go get github.com/jackc/pgx/v5/pgxpool - connection pool manager
-go get github.com/joho/godotenv - loads environment variables from a .env file
+github.com/gin-gonic/gin - HTTP web framework
+github.com/jackc/pgx/v5 - PostgreSQL driver + toolkit
+github.com/jackc/pgx/v5/pgxpool - connection pool manager
+github.com/joho/godotenv - loads environment variables from a .env file
 ```
+
+# Testing locally
+
+- docker-compose up --build
+- docker exec -it postgres-go psql -U postgres -d users_db
+- create users table inside postgres-go container:
+    ```
+     CREATE TABLE users (
+         id SERIAL PRIMARY KEY,
+         name TEXT NOT NULL,
+         email TEXT UNIQUE NOT NULL
+     );
+  ```
+- create user using the API:
+  ```
+  curl -X POST http://localhost:8080/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Luiz","email":"luiz@email.com"}'
+  ```
+- retrieving all users using the API:
+
+  ```curl -X GET http://localhost:8080/users```
