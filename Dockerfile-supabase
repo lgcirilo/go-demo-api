@@ -1,3 +1,5 @@
+# TODO - This config is not working. Can't reach database
+
 FROM golang:1.25-alpine
 
 WORKDIR /app

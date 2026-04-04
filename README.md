@@ -68,8 +68,12 @@ github.com/joho/godotenv - loads environment variables from a .env file
   ```
   curl -X POST http://localhost:8080/users \
   -H "Content-Type: application/json" \
-  -d '{"name":"Luiz","email":"luiz@email.com"}'
+  -d '{"name":"Guilherme","email":"guigui@email.com"}'
   ```
 - retrieving all users using the API:
 
   ```curl -X GET http://localhost:8080/users```
+
+curl -X POST http://localhost:8081/users \
+-H "Content-Type: application/json" \
+-d '{"name":"Luiz","email":"luiz@email.com"}'
